@@ -12,45 +12,12 @@ Ex:
 #include <stdlib.h>
 #include <math.h>
 #include <string.h>
-#include <ctype.h>
 
 void Ex3(char *str){
 	//Your codes here
-char *c = str;
-	char word[20] = "";
-    char longestWord[20] = "";
-    char shortestWord[20] = "";
-    int wordIndex = 0;
-    for(int intputIndex = 0; intputIndex < strlen(c); intputIndex++)
-    {
-        while(intputIndex < strlen(c) && !isspace(c[intputIndex]) && isalnum(c[intputIndex]))
-        {
-            word[wordIndex++] = c[intputIndex];
-        }
-        if(wordIndex != 0)
-        {
-            word[wordIndex] = '\0';
-        }
-        if(strlen(longestWord) == 0)
-        {
-            strcpy(longestWord, word);
-        }
-        if(strlen(shortestWord) == 0)
-        {
-            strcpy(shortestWord, word);
-        }
-        if(strlen(word) > strlen(longestWord))
-        {
-            strcpy(longestWord, word);
-        }
-        if(strlen(word) < strlen(shortestWord))
-        {
-            strcpy(shortestWord, word);
-        }
-        wordIndex = 0;
-    }
-    printf("Longest word: \'%s\'", longestWord);
-    printf("\nShortest word: \'%s\'", shortestWord);
+int n;
+	n=sizeof(str)/sizeof(char);
+	printf("this is the number of string %d",n);
 }
 int main(int argc, char *argv[]) {
 	//testing variable, applying it to your algorithm for auto-evaluating
