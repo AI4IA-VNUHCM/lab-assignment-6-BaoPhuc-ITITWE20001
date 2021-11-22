@@ -15,7 +15,7 @@ void Ex1(int n){
 	int i,j,k;
 	while (n!=0)
 	{
-		if (n>1000){
+		if (n>999){
 			j=n/1000;
 			if(j==1){
 				printf("one thousand ");
