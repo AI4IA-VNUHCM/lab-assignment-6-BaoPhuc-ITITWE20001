@@ -12,50 +12,46 @@ Ex:
 #include <stdlib.h>
 #include <math.h>
 #include <string.h>
+#include <ctype.h>
 
 void Ex3(char *str){
 	//Your codes here
-	int i,j,e,h;
-	char *t="h";
-	int Min=2;
-	int Max=0;
-	j=0;
-	e=2;
-	
-	
-	for (i=0;i<100;i++){
-
-		if (str[i] == ' '){
-			if (Min>j){
-				
-				Min = j;
-				e=i;
-			}
-			if(Max<j){
-				Max=j;
-				h=i;
-
-			}
-			j=0;
-		}
-		else{
-			j++;
-		}
-	}
-
-	printf("Shorgest word: ");
-	for(i=e-Min-1;i<e;i++){
-		printf("%c",str[i]);
-	}
-	
-
-	printf("\n");
-	printf("Longest word: ");
-	for(j=h-Max-1;j<h;++j){
-		printf("%c", str[j]);
-	}
+char *c = str;
+	char word[20] = "";
+    char longestWord[20] = "";
+    char shortestWord[20] = "";
+    int wordIndex = 0;
+    for(int intputIndex = 0; intputIndex < strlen(c); intputIndex++)
+    {
+        while(intputIndex < strlen(c) && !isspace(c[intputIndex]) && isalnum(c[intputIndex]))
+        {
+            word[wordIndex++] = c[intputIndex];
+        }
+        if(wordIndex != 0)
+        {
+            word[wordIndex] = '\0';
+        }
+        if(strlen(longestWord) == 0)
+        {
+            strcpy(longestWord, word);
+        }
+        if(strlen(shortestWord) == 0)
+        {
+            strcpy(shortestWord, word);
+        }
+        if(strlen(word) > strlen(longestWord))
+        {
+            strcpy(longestWord, word);
+        }
+        if(strlen(word) < strlen(shortestWord))
+        {
+            strcpy(shortestWord, word);
+        }
+        wordIndex = 0;
+    }
+    printf("Longest word: \'%s\'", longestWord);
+    printf("\nShortest word: \'%s\'", shortestWord);
 }
-
 int main(int argc, char *argv[]) {
 	//testing variable, applying it to your algorithm for auto-evaluating
 	char *testcase = argv[1];

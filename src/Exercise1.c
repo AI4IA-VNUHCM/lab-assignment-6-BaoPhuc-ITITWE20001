@@ -12,215 +12,124 @@
 
 void Ex1(int n){
 	//Your codes here
-	int i,j,k;
-	while (n!=0)
-	{
-		if (n>999){
-			j=n/1000;
-			if(j==1){
-				printf("one thousand ");
-			}
-			else if (j==2)
-			{
-				printf(" two thousand ");
-			}
-			else if (j==3)
-			{
-				printf(" three thousand ");
-			}
-			else if (j==4)
-			{
-				printf("four thousand ");
-			}
-			else if (j==5)
-			{
-				printf("five thousand ");
-			}
-			else if (j==6)
-			{
-				printf("six thousand ");
-			}
-			else if (j==7)
-			{
-				printf("seven thousand ");
-			}
-			else if (j==8)
-			{
-				printf("eight thousand ");
-			}
-			else if (j==9)
-			{
-				printf("nine thousand ");
-			}
-			n=n-(j*1000);
+	int thsand,hdred,ty,teen;
+	if (n > 9999) printf("TRY AGAIN");
+	else
+	 {
+	if (n >= 1000) {
+		thsand = n/1000;
+		Ex1(thsand);
+		printf(" thousand ");
 		}
-		else if (n>99)
-		{
-			j=n/100;
-			if(j==1){
-				printf("one hundred ");
-			}
-			else if (j==2)
-			{
-				printf("two hundred ");
-			}
-			else if (j==3)
-			{
-				printf("three hundred ");
-			}
-			else if (j==4)
-			{
-				printf("four hundred ");
-			}
-			else if (j==5)
-			{
-				printf("five hundred ");
-			}
-			else if (j==6)
-			{
-				printf("six hundred ");
-			}
-			else if (j==7)
-			{
-				printf("seven hundred ");
-			}
-			else if (j==8)
-			{
-				printf("eight hundred ");
-			}
-			else if (j==9)
-			{
-				printf("nine hundred ");
-			}
-			n=n-(j*100);
-			
+		 else thsand = 0;
+
+	if (n >= 100) {
+		hdred = (n-thsand*1000)/100;
+		Ex1(hdred);
+		printf (" hundred ");
+		} 
+		else hdred = 0;
+
+	
+	if (n >= 10) {
+		ty = (n-thsand*1000-hdred*100)/10;
+		if ((n-thsand*1000-hdred*100) >= 20 || ty == 0) {
+		switch(ty) {
+		case 9: 
+			printf("ninty ");
+			break;
+		case 8: 
+			printf("eighty ");
+			break;
+		case 7: 
+			printf("seventy ");
+			break;
+		case 6: 
+			printf("sixty ");
+			break;
+		case 5: 
+			printf("fifty ");
+			break;
+		case 4: 
+			printf("four ");
+			break;
+		case 3: 
+			printf("thirty ");
+			break;
+		case 2:
+			printf("twenty ");
+			break;
 		}
-		else if (n>9)
-		{
-			j=n/10;
-			if(j==1){
-				n=n-(j*10);
-				if(n==9){
-					printf("nineteen ");
-				}
-				else if (n==1)
-				{
-					printf("eleven ");
-				}
-				
-				else if (n==2)
-			{
-				printf("twelve ");
+		teen = n-1000*thsand-100*hdred-ty*10;
+		Ex1(teen);
+
+		} else if (ty== 1) {
+			ty = (n-thsand*1000-hdred*100);
+			switch(ty) {
+				case 10:
+					printf("ten");
+					break;
+				case 11:
+					printf("eleven");
+					break;
+				case 12:
+					printf("twelve");
+					break;
+				case 13:
+					printf("thirteen");
+					break;
+				case 14:
+					printf("fourteen");
+					break;
+				case 15:
+					printf("fifteen ");
+					break;
+				case 16:
+					printf("sixteen");
+					break;
+				case 17:
+					printf("seventeen");
+					break;
+				case 18:
+					printf("eighteen");
+					break;
+				case 19:
+					printf("ninteen");
+					break;
 			}
-			else if (n==3)
-			{
-				printf("thirdteen ");
-			}
-			else if (n==4)
-			{
-				printf("fourteen ");
-			}
-			else if (n==5)
-			{
-				printf("fifteen ");
-			}
-			else if (n==6)
-			{
-				printf("sixteen ");
-			}
-			else if (n==7)
-			{
-				printf("seventeen ");
-			}
-			else if (n==8)
-			{
-				printf("eighteen ");
-			}
-			n=0;
-				
-			}
-			else if (j==2)
-			{
-				printf("twenty ");
-			}
-			else if (j==3)
-			{
-				printf(" thirdty ");
-			}
-			else if (j==4)
-			{
-				printf("fourty ");
-			}
-			else if (j==5)
-			{
-				printf("fifty ");
-			}
-			else if (j==6)
-			{
-				printf("sixty ");
-			}
-			else if (j==7)
-			{
-				printf("seventy ");
-			}
-			else if (j==8)
-			{
-				printf("eighty ");
-			}
-			else if (j==9)
-			{
-				printf("ninety");
-			}
-			n=n-(j*10);
-			
 		}
-		else if (n>0)
-		{
-			if(n==9){
-					printf("nine");
-				}
-				else if (n==1)
-				{
-					printf("one ");
-				}
-				
-				else if (n==2)
-			{
-				printf(" two ");
-			}
-			else if (n==3)
-			{
-				printf("three ");
-			}
-			else if (n==4)
-			{
-				printf("four ");
-			}
-			else if (n==5)
-			{
-				printf("five ");
-			}
-			else if (n==6)
-			{
-				printf("six ");
-			}
-			else if (n==7)
-			{
-				printf("seven ");
-			}
-			else if (n==8)
-			{
-				printf("eight ");
-			}
-			n=0;
-		}
-		
-		
-		
-		
 	}
 	
-	
+	switch(n) {
+		case 9: 
+			printf("nine");
+			break;
+		case 8: 
+			printf("eight");
+			break;
+		case 7: 
+			printf("seven");
+			break;
+		case 6: 
+			printf("six");
+			break;
+		case 5: 
+			printf("five");
+			break;
+		case 4: 
+			printf("four");
+			break;
+		case 3: 
+			printf("three");
+			break;
+		case 2:
+			printf("two");
+			break;
+		case 1: 
+			printf("one");
+			break;
+		}	
+	}
 }
 
 int main(int argc, char *argv[]) {
